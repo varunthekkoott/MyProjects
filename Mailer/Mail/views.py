@@ -71,12 +71,24 @@ def mail(request, id, num):  # Not Done
     emails = loads(text)
     curr_inbox = emails[id]
     curr_mail = None
+    template = loader.get_template('mail.html')
     for i in curr_inbox:
         if i[0] == num:
             curr_mail = i
     if curr_mail == None:
-        return redirect(mail)  # Not Done
+        return inbox(request, id)
     person = curr_mail[1]
     heading = curr_mail[2]
     content = curr_mail[3]
+    context = {
+        'person': person,
+        'heading': heading,
+        'content': content
+    }
 
+    return HttpResponse(template.render(context, request))
+
+
+def sendmail(request, id):
+    template = loader.get_template('sendmail.html')
+    return HttpResponse(template.render({}, request))
