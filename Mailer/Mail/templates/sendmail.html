@@ -8,7 +8,7 @@
 
 <h1>Send A Mail</h1><br>
 <form action="check/" method="post">
-    {% csfr_token %}
+    {% csrf_token %}
     Send To : <input name="person">
     <br><br>
     Heading : <input name="heading">

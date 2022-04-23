@@ -53,9 +53,9 @@ def signcheck(request):
 
 
 def inbox(request, id):
-    with open('emails.txt', 'r') as file:
+    with open(r'C:\Users\HOME\Desktop\varunpythonprojects\MyProjects\Mailer\Mail\emails.txt', 'r') as file:
         text = file.read()
-        mails = loads(text)
+        mails = dumps(text)
     template = loader.get_template('inbox.html')
     current_inbox = mails[id]
     context = {
@@ -65,10 +65,10 @@ def inbox(request, id):
 
 
 def mail(request, id, num):  # Not Done
-    with open('emails.txt', 'r') as file:
+    with open(r'C:\Users\HOME\Desktop\varunpythonprojects\MyProjects\Mailer\Mail\emails.txt', 'r') as file:
         text = file.read()
 
-    emails = loads(text)
+    emails = dumps(text)
     curr_inbox = emails[id]
     curr_mail = None
     template = loader.get_template('mail.html')
@@ -95,21 +95,21 @@ def sendmail(request, id):
 
 
 def checksendmail(request, id):
-    with open('emails.txt', 'r') as file:
+    with open(r'C:\Users\HOME\Desktop\varunpythonprojects\MyProjects\Mailer\Mail\emails.txt', 'r') as file:
         text = file.read()
 
     data = Mail.objects.get(username=request.POST['person'])
     sender = Mail.objects.get(id=id)
-    current_inbox = loads(text)[data['id']]
+    current_inbox = dumps(text)[data['id']]  # In Progress, data.id
     try:
         email_id = current_inbox[0][0]
     except IndexError:
         email_id = 0
     current_inbox = current_inbox.insert(0, [email_id, sender['username'], request.POST['heading'], request.POST['content']])
-    email_data = loads(text)
+    email_data = dumps(text)
     email_data[data['id']] = current_inbox
-    email_data = dumps(email_data)
-    with open('emails.txt', 'w') as file:
+    email_data = loads(email_data)
+    with open(r'C:\Users\HOME\Desktop\varunpythonprojects\MyProjects\Mailer\Mail\emails.txt', 'w') as file:
         file.write(email_data)
 
     return pick(request, id)

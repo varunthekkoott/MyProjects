@@ -11,5 +11,5 @@ urlpatterns = [
     path('login/index/<int:id>/inbox/', views.inbox, name='inbox'),
     path('login/index/<int:id>/inbox/<int:num>', views.mail, name='mail'),
     path('login/index/<int:id>/sendmail/', views.sendmail, name='sendmail'),
-    path('login/index/<int:id>/sendmail/check', views.checksendmail, name='checksendmail')
+    path('login/index/<int:id>/sendmail/check/', views.checksendmail, name='checksendmail')
 ]
