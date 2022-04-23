@@ -7,12 +7,16 @@
 <body style="background-color:#ffb647">
 
 <h1>Send A Mail</h1><br>
-<form action="check" method="post">
+<form action="check/" method="post">
+    {% csfr_token %}
     Send To : <input name="person">
     <br><br>
     Heading : <input name="heading">
     <br><br>
-    Content: <textarea rows="20" cols="75"
+    Content: <br>
+    <textarea rows="20" cols="75" name="content"></textarea>
+    <br><br>
+    <input type="submit" value="Send Mail">
 </form>
 
 </body>

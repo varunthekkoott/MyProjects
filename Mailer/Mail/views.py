@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from .models import Mail
 from django.urls import reverse
 from django.shortcuts import redirect
-from json import loads
+from json import loads, dumps
 
 
 def home(request):
@@ -92,3 +92,24 @@ def mail(request, id, num):  # Not Done
 def sendmail(request, id):
     template = loader.get_template('sendmail.html')
     return HttpResponse(template.render({}, request))
+
+
+def checksendmail(request, id):
+    with open('emails.txt', 'r') as file:
+        text = file.read()
+
+    data = Mail.objects.get(username=request.POST['person'])
+    sender = Mail.objects.get(id=id)
+    current_inbox = loads(text)[data['id']]
+    try:
+        email_id = current_inbox[0][0]
+    except IndexError:
+        email_id = 0
+    current_inbox = current_inbox.insert(0, [email_id, sender['username'], request.POST['heading'], request.POST['content']])
+    email_data = loads(text)
+    email_data[data['id']] = current_inbox
+    email_data = dumps(email_data)
+    with open('emails.txt', 'w') as file:
+        file.write(email_data)
+
+    return pick(request, id)
