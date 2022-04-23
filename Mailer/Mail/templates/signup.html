@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        .c {
+        text-align:center
+        }
+    </style>
+</head>
+<body style="background-color:#ff3300">
+
+<h1 class="c">Signup</h1>
+<form action="/check/" method="post" class="c">
+    {% csrf_token %}
+    UserName: <br>
+    <input name="username">
+    <br><br>
+    Password: <br>
+    <input name="password">
+    <br><br>
+    Confirm Password: <br>
+    <input name="confpass">
+    <br><br>
+    <input type="submit" value="Save Account" style="background-color:#d52b00">
+</form>
+
+</body>
+</html>

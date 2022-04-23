@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+    <style>
+        .c {
+        text-align:center
+        }
+    </style>
+</head>
+<body style="background-color:#00fd76">
+
+<h1 class="c">Welcome To Mail</h1>
+<h2 class="c">Log In</h2>
+<form action="login/" method="post" class="c">
+    {% csrf_token %}
+    UserName: <br>
+    <input name="username">
+    <br><br>
+    Password: <br>
+    <input name="password">
+    <br><br>
+    <input type="submit" value="Sign In" style="background-color:#00ac50">
+</form>
+<h5 class="c">Don't have a account? <a href="signup/"> Sign Up</a></h5>
+
+</body>
+</html>
