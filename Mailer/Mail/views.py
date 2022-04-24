@@ -100,14 +100,16 @@ def checksendmail(request, id):
 
     data = Mail.objects.get(username=request.POST['person'])
     sender = Mail.objects.get(id=id)
-    current_inbox = dumps(text)[data['id']]  # In Progress, data.id
+    current_inbox = loads(dumps(text))[data.id]
+    print(type(current_inbox))
     try:
         email_id = current_inbox[0][0]
     except IndexError:
         email_id = 0
-    current_inbox = current_inbox.insert(0, [email_id, sender['username'], request.POST['heading'], request.POST['content']])
+    print(type(current_inbox))
+    current_inbox = current_inbox.insert(0, [email_id, sender.username, request.POST['heading'], request.POST['content']])
     email_data = dumps(text)
-    email_data[data['id']] = current_inbox
+    email_data[data.id] = current_inbox
     email_data = loads(email_data)
     with open(r'C:\Users\HOME\Desktop\varunpythonprojects\MyProjects\Mailer\Mail\emails.txt', 'w') as file:
         file.write(email_data)
