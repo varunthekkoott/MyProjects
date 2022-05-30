@@ -2,6 +2,7 @@ This is a hand written digit recognition model.
 This model uses a Convelutional Neural Network with 3 Convelutional layers and a Dense layer.
 
 PREREQUISITES:
+
     1. Tensorflow
     2. Numpy
     3. CV2 or Open-CV Python
