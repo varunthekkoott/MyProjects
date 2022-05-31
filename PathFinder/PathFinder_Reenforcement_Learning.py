@@ -71,8 +71,8 @@ def paths(s, e):  # Function to return the already existing information about th
             "optra": []}
 
 
-start_position = float(input('Starting Position: '))
-goal = float(input('Ending Position: '))
+start_position = round(float(input('Starting Position: '))-0.1, 1)
+goal = round(float(input('Ending Position: '))-0.1, 1)
 cells = [1.0, 1.1, 1.2, 1.3, 1.4, 2.0, 2.1, 2.2, 2.3, 2.4, 3.0, 3.1, 3.2, 3.3, 3.4, 4.0, 4.1, 4.2, 4.3, 4.4, 5.0, 5.1,
          5.2, 5.3, 5.4]
 movable_cells = [-1, 1, -0.1, 0.1]  # Possible moves
