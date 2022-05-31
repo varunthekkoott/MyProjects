@@ -128,3 +128,6 @@ for i in range(epochs):  # Training
     trajectory = [current_position]
 
 update_records(info, goal)
+
+print(f'Shortest Path : {info["optra"]}')
+print(f'Number of steps in shortest path : {info["optralen"]}')

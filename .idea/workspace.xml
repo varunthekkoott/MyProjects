@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7cfa930b-6cad-4aae-b9df-24113f46a26d" name="Default Changelist" comment="Added Files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hand_Written_Digit_Recognizer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Hand_Written_Digit_Recognizer/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +95,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Files" />
